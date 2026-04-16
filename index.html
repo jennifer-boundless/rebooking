@@ -9,73 +9,70 @@
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#f0ede8;color:#1a1a18;font-size:14px;min-height:100vh}
 
-  .topbar{background:#1A3C5E;padding:0 2rem;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+  .topbar{background:#1A3C5E;padding:0 2rem;height:52px;display:flex;align-items:center;justify-content:space-between}
   .topbar-title{color:#fff;font-size:15px;font-weight:600}
-  .topbar-right{display:flex;align-items:center;gap:16px}
   .topbar-meta{color:rgba(255,255,255,0.5);font-size:12px}
-  .topbar-sync{background:rgba(255,255,255,0.12);border:none;color:#fff;font-size:12px;padding:5px 12px;border-radius:6px;cursor:pointer;display:flex;align-items:center;gap:6px}
-  .topbar-sync:hover{background:rgba(255,255,255,0.2)}
-  .spinning{animation:spin 1s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
 
   .page{max-width:1140px;margin:0 auto;padding:1.5rem 1.5rem 3rem}
 
-  /* Connect sheet banner */
-  .connect-banner{background:#fff;border:2px dashed #B5D4F4;border-radius:12px;padding:24px 28px;margin-bottom:1.5rem}
-  .connect-banner.connected{border:0.5px solid rgba(0,0,0,0.09);background:#f9fffe}
-  .connect-title{font-size:14px;font-weight:700;color:#1A3C5E;margin-bottom:6px}
-  .connect-sub{font-size:12px;color:#888;margin-bottom:16px;line-height:1.6}
-  .connect-sub a{color:#378ADD;text-decoration:none}
-  .connect-sub a:hover{text-decoration:underline}
-  .connect-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-  .connect-input{flex:1;min-width:280px;font-size:13px;padding:9px 14px;border-radius:8px;border:0.5px solid rgba(0,0,0,0.2);color:#1a1a18;outline:none}
-  .connect-input:focus{border-color:#378ADD}
-  .btn-primary{background:#1A3C5E;color:#fff;border:none;border-radius:8px;padding:9px 20px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
+  /* Data source bar */
+  .source-bar{background:#fff;border:0.5px solid rgba(0,0,0,0.09);border-radius:12px;padding:16px 20px;margin-bottom:1.5rem;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .source-info{flex:1;min-width:0}
+  .source-info strong{display:block;font-size:14px;font-weight:600;color:#1A3C5E}
+  .source-info span{font-size:12px;color:#9b9b97}
+  .updated-block{text-align:right;flex-shrink:0}
+  .updated-label{font-size:11px;color:#9b9b97;text-transform:uppercase;letter-spacing:.05em}
+  .updated-date{font-size:20px;font-weight:700;color:#1A3C5E;line-height:1.2}
+  .btn{border:none;border-radius:8px;padding:9px 18px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:background .15s}
+  .btn-primary{background:#1A3C5E;color:#fff}
   .btn-primary:hover{background:#2E6DA4}
-  .btn-secondary{background:#fff;color:#1A3C5E;border:1px solid #1A3C5E;border-radius:8px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
-  .connect-status{font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px;display:inline-flex;align-items:center;gap:5px}
-  .status-ok{background:#E2EFDA;color:#3B6D11}
-  .status-err{background:#FCEBEB;color:#A32D2D}
-  .status-loading{background:#E6F1FB;color:#185FA5}
+  .btn-secondary{background:#f0ede8;color:#1A3C5E}
+  .btn-secondary:hover{background:#e0ddd8}
+  .status-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px;flex-shrink:0}
+  .dot-ok{background:#639922}
+  .dot-loading{background:#EF9F27;animation:pulse 1s infinite}
+  .dot-err{background:#E24B4A}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 
-  /* Last updated */
-  .updated-bar{display:flex;align-items:baseline;gap:10px;margin-bottom:1.5rem}
-  .updated-label{font-size:12px;color:#9b9b97;text-transform:uppercase;letter-spacing:.06em}
-  .updated-date{font-size:28px;font-weight:800;color:#1A3C5E;line-height:1}
+  /* CSV fallback */
+  .csv-fallback{background:#f9f8f6;border:0.5px solid rgba(0,0,0,0.09);border-radius:8px;padding:12px 16px;margin-top:10px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .csv-fallback span{font-size:12px;color:#6b6b67;flex:1}
+  input[type=file]{font-size:12px;color:#888;cursor:pointer}
 
   /* Filter section */
   .filter-section{background:#1A3C5E;border-radius:12px;padding:16px 20px;margin-bottom:1.5rem}
-  .filter-headline{color:#fff;font-size:13px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
-  .filter-pill{background:rgba(255,255,255,0.15);border-radius:20px;padding:2px 10px;font-size:11px;font-weight:500}
+  .filter-headline{color:#fff;font-size:13px;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .filter-hint{background:rgba(255,255,255,0.15);border-radius:20px;padding:2px 10px;font-size:11px;font-weight:500;color:#fff}
   .filter-row{display:flex;gap:12px;flex-wrap:wrap}
-  .filter-group{display:flex;flex-direction:column;gap:5px;flex:1;min-width:150px}
+  .filter-group{display:flex;flex-direction:column;gap:5px;flex:1;min-width:140px}
   .filter-group label{font-size:11px;color:rgba(255,255,255,0.65);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
   .filter-group select{font-size:13px;padding:8px 12px;border-radius:8px;border:none;background:#fff;color:#1a1a18;cursor:pointer;outline:none;font-weight:500}
   .filter-group select:focus{outline:2px solid #93C5F5}
+  .filter-reset{background:rgba(255,255,255,0.12);border:none;border-radius:8px;padding:8px 14px;font-size:12px;color:#fff;cursor:pointer;align-self:flex-end;white-space:nowrap}
+  .filter-reset:hover{background:rgba(255,255,255,0.2)}
 
   /* Metrics */
   .metrics{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-bottom:1.5rem}
   .metric{background:#e8e4de;border-radius:8px;padding:14px 16px}
   .metric.highlight{background:#1A3C5E}
-  .metric.dim{background:#ece9e3;border:0.5px dashed rgba(0,0,0,0.15)}
-  .metric-label{font-size:10px;color:#6b6b67;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px;font-weight:600}
+  .metric.display-only{background:#f5f3ef;border:0.5px dashed rgba(0,0,0,0.12)}
+  .metric-label{font-size:11px;color:#6b6b67;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
   .metric.highlight .metric-label{color:rgba(255,255,255,0.6)}
-  .metric.dim .metric-label{color:#9b9b97}
-  .metric-val{font-size:26px;font-weight:800;color:#1a1a18;line-height:1.1}
+  .metric.display-only .metric-label{color:#9b9b97}
+  .metric-val{font-size:26px;font-weight:700;color:#1a1a18;line-height:1.1}
   .metric.highlight .metric-val{color:#fff}
-  .metric.dim .metric-val{color:#aaa}
-  .metric-sub{font-size:10px;color:#9b9b97;margin-top:3px}
-  .metric.highlight .metric-sub{color:rgba(255,255,255,0.45)}
+  .metric.display-only .metric-val{color:#b0aca6}
+  .metric-sub{font-size:11px;color:#9b9b97;margin-top:3px}
+  .metric.highlight .metric-sub{color:rgba(255,255,255,0.5)}
 
   /* Cards */
   .card{background:#fff;border:0.5px solid rgba(0,0,0,0.09);border-radius:12px;padding:18px 20px;margin-bottom:14px}
   .card-title{font-size:11px;font-weight:700;color:#6b6b67;text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
   .card-sub{font-size:12px;color:#9b9b97;margin-bottom:14px}
-
-  /* Legend */
   .legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:12px;align-items:center}
   .legend span{display:flex;align-items:center;gap:5px;font-size:12px;color:#6b6b67}
   .leg-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+  .legend-hint{margin-left:auto;font-size:11px;color:#9b9b97;font-style:italic}
 
   /* Advisor table */
   .adv-table{width:100%;font-size:13px;border-collapse:collapse}
@@ -99,18 +96,20 @@
   .team-note{font-size:11px;color:#9b9b97;margin-top:12px;padding-top:10px;border-top:0.5px solid rgba(0,0,0,0.07)}
 
   /* Future cohorts */
-  .future-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+  .future-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
   .future-loc-card{background:#f9f8f6;border:0.5px solid rgba(0,0,0,0.09);border-radius:10px;padding:14px 16px}
   .future-loc-title{font-size:12px;font-weight:700;color:#1A3C5E;margin-bottom:10px;display:flex;align-items:center;gap:6px}
   .future-loc-badge{background:#1A3C5E;color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px}
-  .future-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:0.5px solid rgba(0,0,0,0.06);font-size:12px}
+  .future-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:0.5px solid rgba(0,0,0,0.06);font-size:12px}
   .future-row:last-child{border-bottom:none}
   .future-dest{color:#1a1a18;font-weight:500}
   .future-date{color:#888;font-size:11px;margin-top:1px}
   .future-count{background:#E6F1FB;color:#185FA5;font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}
 
-  .empty{text-align:center;padding:3rem 1rem;color:#9b9b97}
+  .empty{text-align:center;padding:2.5rem 1rem;color:#9b9b97}
   .empty strong{display:block;font-size:15px;color:#6b6b67;margin-bottom:6px}
+  .spinner{display:inline-block;width:20px;height:20px;border:2px solid #e8e4de;border-top-color:#378ADD;border-radius:50%;animation:spin .7s linear infinite;margin-right:8px;vertical-align:middle}
+  @keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
@@ -120,46 +119,36 @@
     <span class="topbar-title">Boundless Life</span>
     <span class="topbar-meta">· Rebooking Dashboard</span>
   </div>
-  <div class="topbar-right">
-    <span class="topbar-meta" id="rowCount"></span>
-    <button class="topbar-sync" id="syncBtn" onclick="syncNow()" style="display:none">
-      <span id="syncIcon">↻</span> Sync now
-    </button>
-  </div>
+  <span class="topbar-meta" id="topRowCount"></span>
 </div>
 
 <div class="page">
 
-  <!-- Connect banner -->
-  <div class="connect-banner" id="connectBanner">
-    <div class="connect-title">Connect your Google Sheet</div>
-    <div class="connect-sub">
-      In Google Sheets go to <strong>File → Share → Publish to web</strong>, select your <strong>Families</strong> sheet, choose <strong>CSV</strong> format, then click Publish and paste the URL below.<br>
-      The dashboard will fetch live data every time you click Sync. No login required.
+  <!-- Data source bar -->
+  <div class="source-bar">
+    <span class="status-dot dot-loading" id="statusDot"></span>
+    <div class="source-info">
+      <strong id="sourceTitle">Connecting to Google Sheet…</strong>
+      <span id="sourceDetail">Fetching live data from your Families sheet</span>
     </div>
-    <div class="connect-row">
-      <input class="connect-input" id="sheetUrl" type="text" placeholder="Paste your published CSV URL here…" />
-      <button class="btn-primary" onclick="connectSheet()">Connect &amp; load</button>
-      <span id="connectStatus"></span>
-    </div>
-    <div style="margin-top:14px;padding-top:14px;border-top:0.5px solid rgba(0,0,0,0.08)">
-      <div style="font-size:12px;color:#888;margin-bottom:8px">Or load a CSV file from your computer instead:</div>
-      <input type="file" id="csvFile" accept=".csv" style="display:none">
-      <button class="btn-secondary" onclick="document.getElementById('csvFile').click()">Upload CSV file</button>
+    <button class="btn btn-secondary" onclick="loadLive()" id="refreshBtn">↻ Refresh</button>
+    <div class="updated-block">
+      <div class="updated-label">Last updated</div>
+      <div class="updated-date" id="updatedDate">—</div>
     </div>
   </div>
 
-  <!-- Updated bar -->
-  <div class="updated-bar" id="updatedBar" style="display:none">
-    <span class="updated-label">Last updated</span>
-    <span class="updated-date" id="updatedDate">—</span>
+  <!-- CSV fallback -->
+  <div class="csv-fallback" id="csvFallback" style="display:none">
+    <span>Live connection unavailable — import a CSV manually instead (Google Sheets → File → Download → CSV)</span>
+    <input type="file" id="csvFile" accept=".csv">
   </div>
 
   <!-- Filters -->
   <div class="filter-section">
     <div class="filter-headline">
-      Use filters to explore the stats
-      <span class="filter-pill">Select any filter to drill down</span>
+      Use the filters below to explore the stats
+      <span class="filter-hint">Select any filter to drill down</span>
     </div>
     <div class="filter-row">
       <div class="filter-group">
@@ -183,18 +172,19 @@
           <option value="Local Family">Local Family</option>
         </select>
       </div>
+      <button class="filter-reset" onclick="resetFilters()">Clear filters</button>
     </div>
   </div>
 
-  <!-- Metrics — 6 cards, first is dim display-only -->
+  <!-- Metrics -->
   <div class="metrics">
-    <div class="metric dim">
-      <div class="metric-label">All families incl. team</div>
+    <div class="metric display-only">
+      <div class="metric-label">All families</div>
       <div class="metric-val" id="m-all">—</div>
-      <div class="metric-sub">display only</div>
+      <div class="metric-sub">incl. Team Members</div>
     </div>
     <div class="metric highlight">
-      <div class="metric-label">Families (excl. team)</div>
+      <div class="metric-label">Families (excl. TM)</div>
       <div class="metric-val" id="m-total">—</div>
       <div class="metric-sub" id="m-note">Team Members excluded</div>
     </div>
@@ -218,7 +208,7 @@
     </div>
   </div>
 
-  <!-- Chart -->
+  <!-- Combined chart -->
   <div class="card">
     <div class="card-title">Rebooking by location</div>
     <div class="card-sub">Stacked bars show family counts · % above each bar = rebooking rate</div>
@@ -233,25 +223,27 @@
   <!-- Advisor table -->
   <div class="card">
     <div class="card-title">Journey advisor performance</div>
-    <div class="card-sub">Assigned families only · Team Members excluded from all calculations</div>
-    <div id="advWrap"><div class="empty"><strong>No data loaded</strong>Connect your Google Sheet or upload a CSV above</div></div>
+    <div class="card-sub">Based on assigned families only</div>
+    <div id="advWrap"><div class="empty"><strong>No data yet</strong></div></div>
+    <div class="team-note">Team Members are excluded from all stats — they rebook directly without an assigned advisor.</div>
   </div>
 
   <!-- Future cohorts -->
   <div class="card">
     <div class="card-title">Where are families going next?</div>
-    <div class="card-sub">Future cohorts booked by rebooked families, grouped by current location</div>
-    <div id="futureWrap"><div class="empty"><strong>No data loaded</strong></div></div>
+    <div class="card-sub">Future cohorts booked, grouped by current location</div>
+    <div id="futureWrap"><div class="empty"><strong>No data yet</strong></div></div>
   </div>
 
 </div>
 
 <script>
-// ── RFC-4180 CSV parser ────────────────────────────────────────────────
+const LIVE_URL = "https://script.google.com/macros/s/AKfycby6wHwS1T_g7MAxjjmA9yx7A6xMvKUWL_WoiEAkeZUff2qUpCt21lywYiB5E4w7MRswBg/exec";
+
+// ── Proper RFC-4180 CSV parser ─────────────────────────────────────────
 function parseCSV(text) {
   const rows = [];
   let i = 0, len = text.length;
-
   function parseField() {
     if (i >= len) return '';
     if (text[i] === '"') {
@@ -259,19 +251,17 @@ function parseCSV(text) {
       let val = '';
       while (i < len) {
         if (text[i] === '"') {
-          if (i+1 < len && text[i+1] === '"') { val += '"'; i += 2; }
+          if (text[i+1] === '"') { val += '"'; i += 2; }
           else { i++; break; }
         } else { val += text[i++]; }
       }
       return val;
     } else {
       let val = '';
-      while (i < len && text[i] !== ',' && text[i] !== '\n' && text[i] !== '\r')
-        val += text[i++];
+      while (i < len && text[i] !== ',' && text[i] !== '\n' && text[i] !== '\r') val += text[i++];
       return val;
     }
   }
-
   function parseRow() {
     const fields = [];
     while (i < len && text[i] !== '\n' && text[i] !== '\r') {
@@ -282,86 +272,151 @@ function parseCSV(text) {
     if (i < len && text[i] === '\n') i++;
     return fields;
   }
-
-  const headers = parseRow().map(h => h.trim().toLowerCase().replace(/[\s?]+/g,'_').replace(/_+/g,'_').replace(/^_|_$/g,''));
+  const headers = parseRow().map(h => h.trim().toLowerCase().replace(/\s+/g,'_'));
   while (i < len) {
     if (text[i] === '\r' || text[i] === '\n') { i++; continue; }
     const fields = parseRow();
     if (fields.every(f => !f.trim())) continue;
     const obj = {};
-    headers.forEach((h, idx) => { obj[h] = (fields[idx] || '').trim(); });
+    headers.forEach((h,idx) => { obj[h] = (fields[idx] || '').trim(); });
     rows.push(obj);
   }
   return rows;
 }
 
-// ── Field accessors ───────────────────────────────────────────────────
+// ── Field accessors ────────────────────────────────────────────────────
 const F = {
-  name:     r => r['family_name'] || '',
-  type:     r => r['family_type'] || '',
-  loc:      r => r['location'] || '',
-  cohort:   r => r['cohortt'] || r['cohort'] || '',
+  name:     r => r['family_name'] || r['family name'] || '',
+  type:     r => (r['family_type'] || r['family type'] || '').trim(),
+  loc:      r => (r['location'] || '').trim(),
+  cohort:   r => (r['cohortt'] || r['cohort'] || '').trim(),
   advisor:  r => {
-    const a = (r['journey_advisor'] || '').trim();
+    const a = (r['journey_advisor'] || r['journey advisor'] || '').trim();
     return a === 'Estefania Arias' ? 'Estefania' : a;
   },
   rebooked: r => {
-    const keys = Object.keys(r).filter(k => k.includes('rebooked'));
-    for (const k of keys) if ((r[k]||'').trim().toLowerCase() === 'yes') return true;
-    return false;
+    const keys = Object.keys(r).filter(k => k.includes('rebook') && k.includes('?'));
+    const v = (keys.length ? r[keys[0]] : '').trim().toLowerCase();
+    return v === 'yes';
   },
   window:   r => {
-    const keys = Object.keys(r).filter(k => k.includes('window'));
-    for (const k of keys) if (r[k]) return r[k].trim();
-    return '';
+    const keys = Object.keys(r).filter(k => k.includes('rebooking_window') || k.includes('rebooking window'));
+    return keys.length ? (r[keys[0]] || '').trim() : '';
   },
   future:   r => {
-    const keys = Object.keys(r).filter(k => k.includes('future') || k.includes('cohorts_booked'));
-    for (const k of keys) if (r[k]) return r[k].trim();
-    return '';
+    const keys = Object.keys(r).filter(k => k.includes('future'));
+    return keys.length ? (r[keys[0]] || '').trim() : '';
   },
 };
 
 function parseFutureCohorts(str) {
   if (!str) return [];
   return str.split('\n').map(l => l.trim()).filter(l => l.includes('•')).map(line => {
-    const [locPart, datePart] = line.split('•');
-    return { dest: locPart.trim().split(',')[0].trim(), date: (datePart||'').trim() };
+    const parts = line.split('•');
+    return { dest: parts[0].trim().split(',')[0].trim(), date: parts[1].trim() };
   });
 }
 
-// ── State ─────────────────────────────────────────────────────────────
+// ── State ──────────────────────────────────────────────────────────────
 let ALL_ROWS = [];
-let SHEET_URL = '';
 let barChart;
-
 const ADV_STYLE = {
   Bex:       { ini:'ini-bex', bar:'#378ADD' },
   Kayla:     { ini:'ini-kay', bar:'#639922' },
   Estefania: { ini:'ini-est', bar:'#EF9F27' },
 };
 
-function initials(n) { return n.split(' ').filter(Boolean).map(w=>w[0]).join('').toUpperCase().slice(0,2); }
+function initials(name) {
+  return name.split(' ').filter(Boolean).map(w=>w[0]).join('').toUpperCase().slice(0,2);
+}
 
-// ── Populate filters ──────────────────────────────────────────────────
+// ── Live data load ─────────────────────────────────────────────────────
+async function loadLive() {
+  setStatus('loading', 'Fetching live data…', 'Connecting to Google Sheet');
+  document.getElementById('refreshBtn').disabled = true;
+  try {
+    const res = await fetch(LIVE_URL);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const text = await res.text();
+    let rows;
+    // Try JSON first, fall back to CSV
+    try {
+      const json = JSON.parse(text);
+      rows = Array.isArray(json) ? json : (json.data || json.rows || json.families || []);
+      // Normalise JSON keys
+      rows = rows.map(r => {
+        const norm = {};
+        Object.keys(r).forEach(k => { norm[k.toLowerCase().replace(/\s+/g,'_')] = String(r[k] || '').trim(); });
+        return norm;
+      });
+    } catch {
+      rows = parseCSV(text);
+    }
+    if (!rows.length) throw new Error('No data returned');
+    processRows(rows, 'live');
+  } catch(err) {
+    setStatus('error', 'Could not connect to Google Sheet', err.message);
+    document.getElementById('csvFallback').style.display = 'flex';
+  }
+  document.getElementById('refreshBtn').disabled = false;
+}
+
+function processRows(rows, source) {
+  ALL_ROWS = rows;
+  const now = new Date();
+  document.getElementById('updatedDate').textContent = now.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+  document.getElementById('topRowCount').textContent = `${rows.length} rows`;
+  if (source === 'live') {
+    setStatus('ok', 'Live — Google Sheet', `${rows.length} families loaded`);
+  } else {
+    setStatus('ok', 'Imported from CSV', `${rows.length} families loaded`);
+  }
+  populateFilters(rows);
+  render();
+}
+
+function setStatus(state, title, detail) {
+  const dot = document.getElementById('statusDot');
+  dot.className = 'status-dot ' + (state === 'ok' ? 'dot-ok' : state === 'error' ? 'dot-err' : 'dot-loading');
+  document.getElementById('sourceTitle').textContent = title;
+  document.getElementById('sourceDetail').textContent = detail;
+}
+
+// ── CSV fallback ───────────────────────────────────────────────────────
+document.getElementById('csvFile').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => { processRows(parseCSV(ev.target.result), 'csv'); };
+  reader.readAsText(file);
+});
+
+// ── Populate filters ───────────────────────────────────────────────────
 function populateFilters(rows) {
   const noTeam = rows.filter(r => F.type(r) !== 'Team Member');
   const locs    = [...new Set(noTeam.map(r => F.loc(r)).filter(Boolean))].sort();
   const cohorts = [...new Set(noTeam.map(r => F.cohort(r)).filter(Boolean))].sort();
   const advs    = [...new Set(noTeam.map(r => F.advisor(r)).filter(Boolean))].sort();
 
-  const set = (id, vals, all) => {
-    const el = document.getElementById(id);
-    const cur = el.value;
-    el.innerHTML = `<option value="all">${all}</option>` + vals.map(v=>`<option value="${v}">${v}</option>`).join('');
-    if (vals.includes(cur)) el.value = cur;
+  const set = (id, opts, allLabel) => {
+    const sel = document.getElementById(id);
+    const cur = sel.value;
+    sel.innerHTML = `<option value="all">${allLabel}</option>` + opts.map(o=>`<option value="${o}">${o}</option>`).join('');
+    if (opts.includes(cur)) sel.value = cur;
   };
   set('locFilter',    locs,    'All locations');
   set('cohortFilter', cohorts, 'All cohorts');
   set('advFilter',    advs,    'All advisors');
 }
 
-// ── Filtered rows ─────────────────────────────────────────────────────
+function resetFilters() {
+  ['locFilter','cohortFilter','advFilter','typeFilter'].forEach(id => {
+    document.getElementById(id).value = 'all';
+  });
+  render();
+}
+
+// ── Get filtered rows ─────────────────────────────────────────────────
 function getFiltered() {
   const loc    = document.getElementById('locFilter').value;
   const cohort = document.getElementById('cohortFilter').value;
@@ -371,30 +426,35 @@ function getFiltered() {
     if (F.type(r) === 'Team Member') return false;
     if (loc    !== 'all' && F.loc(r)    !== loc)    return false;
     if (cohort !== 'all' && F.cohort(r) !== cohort) return false;
-    if (adv    !== 'all' && F.advisor(r)!== adv)    return false;
-    if (type === 'standard' && F.type(r) !== '') return false;
+    if (adv    !== 'all' && F.advisor(r) !== adv)   return false;
+    if (type === 'standard' && F.type(r) !== '')    return false;
     if (type !== 'all' && type !== 'standard' && F.type(r) !== type) return false;
     return true;
   });
 }
 
-// ── Render ────────────────────────────────────────────────────────────
+// ── Main render ────────────────────────────────────────────────────────
 function render() {
-  const rows     = getFiltered();
-  const allCount = ALL_ROWS.length;
+  const rows  = getFiltered();
   const total    = rows.length;
+  const allIncTM = ALL_ROWS.filter(r => {
+    const loc    = document.getElementById('locFilter').value;
+    const cohort = document.getElementById('cohortFilter').value;
+    if (loc    !== 'all' && F.loc(r)    !== loc)    return false;
+    if (cohort !== 'all' && F.cohort(r) !== cohort) return false;
+    return true;
+  }).length;
   const rebooked = rows.filter(r => F.rebooked(r)).length;
   const pre      = rows.filter(r => F.window(r) === 'Pre-cohort').length;
   const on       = rows.filter(r => F.window(r) === 'On-cohort').length;
   const rate     = total > 0 ? Math.round(rebooked/total*100) : 0;
 
-  document.getElementById('m-all').textContent   = allCount || '—';
+  document.getElementById('m-all').textContent   = allIncTM;
   document.getElementById('m-total').textContent = total;
   document.getElementById('m-reb').textContent   = rebooked;
-  document.getElementById('m-rate').textContent  = total > 0 ? rate + '%' : '—';
+  document.getElementById('m-rate').textContent  = rate + '%';
   document.getElementById('m-pre').textContent   = pre;
   document.getElementById('m-on').textContent    = on;
-  document.getElementById('rowCount').textContent = allCount ? `${allCount} families` : '';
 
   renderChart(rows);
   renderAdvisors(rows);
@@ -403,50 +463,48 @@ function render() {
 
 // ── Chart ─────────────────────────────────────────────────────────────
 function renderChart(rows) {
-  const labels = [...new Set(rows.map(r => F.loc(r)).filter(Boolean))].sort();
+  const LOCS = [...new Set(rows.map(r => F.loc(r)).filter(Boolean))].sort();
   const barPre=[], barOn=[], barNo=[];
-  labels.forEach(l => {
-    const g = rows.filter(r => F.loc(r)===l);
-    barPre.push(g.filter(r=>F.window(r)==='Pre-cohort').length);
-    barOn.push(g.filter(r=>F.window(r)==='On-cohort').length);
-    barNo.push(g.filter(r=>!F.rebooked(r)).length);
+  LOCS.forEach(l => {
+    const g = rows.filter(r => F.loc(r) === l);
+    barPre.push(g.filter(r => F.window(r) === 'Pre-cohort').length);
+    barOn.push(g.filter(r => F.window(r) === 'On-cohort').length);
+    barNo.push(g.filter(r => !F.rebooked(r)).length);
   });
-  const totals = labels.map((_,i)=>barPre[i]+barOn[i]+barNo[i]);
-  const rates  = labels.map((_,i)=>totals[i]>0?Math.round((barPre[i]+barOn[i])/totals[i]*100):0);
-
-  const ratePlugin = {
-    id:'rateLabels',
-    afterDatasetsDraw(chart){
-      const {ctx,scales:{y}} = chart;
-      chart.getDatasetMeta(0).data.forEach((bar,idx)=>{
-        const top = y.getPixelForValue(totals[idx]);
-        ctx.save();
-        ctx.font='bold 12px -apple-system,Arial,sans-serif';
-        ctx.fillStyle='#1A3C5E';
-        ctx.textAlign='center';
-        ctx.fillText(rates[idx]+'%', bar.x, top-7);
-        ctx.restore();
-      });
-    }
-  };
+  const totals = LOCS.map((_,i) => barPre[i]+barOn[i]+barNo[i]);
+  const rates  = LOCS.map((_,i) => totals[i]>0 ? Math.round((barPre[i]+barOn[i])/totals[i]*100) : 0);
 
   if (barChart) barChart.destroy();
-  barChart = new Chart(document.getElementById('barChart'),{
-    type:'bar', plugins:[ratePlugin],
+  barChart = new Chart(document.getElementById('barChart'), {
+    type: 'bar',
+    plugins:[{
+      id:'rateLabels',
+      afterDatasetsDraw(chart) {
+        const {ctx,scales:{y}} = chart;
+        chart.getDatasetMeta(0).data.forEach((bar,i) => {
+          ctx.save();
+          ctx.font = 'bold 12px -apple-system,Arial,sans-serif';
+          ctx.fillStyle = '#1A3C5E';
+          ctx.textAlign = 'center';
+          ctx.fillText(rates[i]+'%', bar.x, y.getPixelForValue(totals[i])-8);
+          ctx.restore();
+        });
+      }
+    }],
     data:{
-      labels,
+      labels: LOCS,
       datasets:[
-        {label:'Pre-cohort',   data:barPre, backgroundColor:'#378ADD',stack:'s'},
-        {label:'On-cohort',    data:barOn,  backgroundColor:'#639922',stack:'s'},
-        {label:'Not rebooked', data:barNo,  backgroundColor:'#DDDDDD',stack:'s'},
+        {label:'Pre-cohort',   data:barPre, backgroundColor:'#378ADD', stack:'s'},
+        {label:'On-cohort',    data:barOn,  backgroundColor:'#639922', stack:'s'},
+        {label:'Not rebooked', data:barNo,  backgroundColor:'#DDDDDD', stack:'s'},
       ]
     },
     options:{
-      responsive:true,maintainAspectRatio:false,
+      responsive:true, maintainAspectRatio:false,
       layout:{padding:{top:28}},
       plugins:{
         legend:{display:false},
-        tooltip:{callbacks:{footer:items=>`Rebooking rate: ${rates[items[0].dataIndex]}%`}}
+        tooltip:{callbacks:{footer:items=>{const i=items[0].dataIndex;return `Rebooking rate: ${rates[i]}%`;}}}
       },
       scales:{
         x:{grid:{display:false},ticks:{font:{size:12},color:'#6b6b67'}},
@@ -456,166 +514,59 @@ function renderChart(rows) {
   });
 }
 
-// ── Advisor table ─────────────────────────────────────────────────────
+// ── Advisor table ──────────────────────────────────────────────────────
 function renderAdvisors(rows) {
-  const advisors = [...new Set(rows.map(r=>F.advisor(r)).filter(Boolean))].sort();
-  if (!advisors.length) {
-    document.getElementById('advWrap').innerHTML='<div class="empty"><strong>No advisor data</strong></div>';
-    return;
-  }
-  const tbody = advisors.map(adv=>{
-    const ar   = rows.filter(r=>F.advisor(r)===adv);
-    const reb  = ar.filter(r=>F.rebooked(r)).length;
-    const pre  = ar.filter(r=>F.window(r)==='Pre-cohort').length;
-    const on   = ar.filter(r=>F.window(r)==='On-cohort').length;
-    const rate = ar.length>0?Math.round(reb/ar.length*100):0;
-    const s    = ADV_STYLE[adv]||{ini:'ini-bex',bar:'#888'};
+  const advisors = [...new Set(rows.map(r => F.advisor(r)).filter(Boolean))].sort();
+  if (!advisors.length) { document.getElementById('advWrap').innerHTML='<div class="empty"><strong>No advisor data</strong></div>'; return; }
+  const tbody = advisors.map(adv => {
+    const ar  = rows.filter(r => F.advisor(r) === adv);
+    const reb = ar.filter(r => F.rebooked(r)).length;
+    const pre = ar.filter(r => F.window(r) === 'Pre-cohort').length;
+    const on  = ar.filter(r => F.window(r) === 'On-cohort').length;
+    const rt  = ar.length > 0 ? Math.round(reb/ar.length*100) : 0;
+    const s   = ADV_STYLE[adv] || {ini:'ini-bex',bar:'#888'};
     return `<tr>
       <td><div class="adv-name-cell"><span class="initials ${s.ini}">${initials(adv)}</span>${adv}</div></td>
       <td style="color:#6b6b67">${ar.length}</td>
       <td style="font-weight:700">${reb}</td>
       <td><span class="pill pill-pre">${pre}</span></td>
       <td><span class="pill pill-on">${on}</span></td>
-      <td><div class="rate-wrap"><div class="rate-bg"><div class="rate-fill" style="width:${rate}%;background:${s.bar}"></div></div><span class="rate-pct">${rate}%</span></div></td>
+      <td><div class="rate-wrap"><div class="rate-bg"><div class="rate-fill" style="width:${rt}%;background:${s.bar}"></div></div><span class="rate-pct">${rt}%</span></div></td>
     </tr>`;
   }).join('');
-  document.getElementById('advWrap').innerHTML=`
-    <table class="adv-table">
-      <thead><tr><th>Advisor</th><th>Assigned</th><th>Rebooked</th><th>Pre-cohort</th><th>On-cohort</th><th>Rate</th></tr></thead>
-      <tbody>${tbody}</tbody>
-    </table>`;
+  document.getElementById('advWrap').innerHTML=`<table class="adv-table"><thead><tr><th>Advisor</th><th>Assigned</th><th>Rebooked</th><th>Pre-cohort</th><th>On-cohort</th><th>Rate</th></tr></thead><tbody>${tbody}</tbody></table>`;
 }
 
-// ── Future cohorts ────────────────────────────────────────────────────
+// ── Future cohorts ─────────────────────────────────────────────────────
 function renderFuture(rows) {
-  const rebRows = rows.filter(r=>F.rebooked(r)&&F.future(r));
-  if (!rebRows.length){
-    document.getElementById('futureWrap').innerHTML='<div class="empty"><strong>No future cohort data available</strong></div>';
-    return;
-  }
-  const byLoc={};
-  rebRows.forEach(r=>{
-    const cl=F.loc(r);
-    if(!byLoc[cl]) byLoc[cl]={};
-    parseFutureCohorts(F.future(r)).forEach(({dest,date})=>{
-      const k=`${dest}||${date}`;
-      byLoc[cl][k]=(byLoc[cl][k]||0)+1;
+  const rebookedRows = rows.filter(r => F.rebooked(r) && F.future(r));
+  if (!rebookedRows.length) { document.getElementById('futureWrap').innerHTML='<div class="empty"><strong>No future cohort data available</strong></div>'; return; }
+  const byLoc = {};
+  rebookedRows.forEach(r => {
+    const cl = F.loc(r);
+    if (!byLoc[cl]) byLoc[cl] = {};
+    parseFutureCohorts(F.future(r)).forEach(({dest,date}) => {
+      const k = `${dest}||${date}`;
+      byLoc[cl][k] = (byLoc[cl][k]||0)+1;
     });
   });
-  const cards=Object.keys(byLoc).sort().map(loc=>{
-    const entries=Object.entries(byLoc[loc])
-      .map(([k,count])=>{const[dest,date]=k.split('||');return{dest,date,count};})
-      .sort((a,b)=>b.count-a.count);
-    const total=entries.reduce((s,e)=>s+e.count,0);
-    const rowsHtml=entries.map(e=>`
-      <div class="future-row">
-        <div><div class="future-dest">${e.dest}</div><div class="future-date">${e.date}</div></div>
-        <span class="future-count">${e.count} ${e.count===1?'family':'families'}</span>
-      </div>`).join('');
+  const cards = Object.keys(byLoc).sort().map(loc => {
+    const entries = Object.entries(byLoc[loc]).map(([k,c])=>{ const[d,dt]=k.split('||'); return{dest:d,date:dt,count:c}; }).sort((a,b)=>b.count-a.count);
+    const total = entries.reduce((s,e)=>s+e.count,0);
     return `<div class="future-loc-card">
       <div class="future-loc-title">From ${loc} <span class="future-loc-badge">${total} booking${total!==1?'s':''}</span></div>
-      ${rowsHtml}
+      ${entries.map(e=>`<div class="future-row"><div><div class="future-dest">${e.dest}</div><div class="future-date">${e.date}</div></div><span class="future-count">${e.count}</span></div>`).join('')}
     </div>`;
   }).join('');
   document.getElementById('futureWrap').innerHTML=`<div class="future-grid">${cards}</div>`;
 }
 
-// ── Load data from text ───────────────────────────────────────────────
-function loadData(text, label) {
-  const parsed = parseCSV(text);
-  if (!parsed.length) throw new Error('No rows found — check the file format');
-  ALL_ROWS = parsed;
-  populateFilters(ALL_ROWS);
-
-  const now = new Date();
-  document.getElementById('updatedBar').style.display = 'flex';
-  document.getElementById('updatedDate').textContent =
-    now.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
-
-  document.getElementById('connectBanner').classList.add('connected');
-  document.querySelector('.connect-title').textContent = '✓ Connected — ' + label;
-  document.querySelector('.connect-sub').innerHTML = 'Data loaded successfully. Click <strong>Sync now</strong> in the top bar to refresh anytime.';
-  document.getElementById('syncBtn').style.display = 'flex';
-
-  render();
-}
-
-// ── Connect Google Sheet ──────────────────────────────────────────────
-async function connectSheet() {
-  const url = document.getElementById('sheetUrl').value.trim();
-  if (!url) return;
-  SHEET_URL = url;
-  setStatus('loading','Loading…');
-  try {
-    const text = await fetchSheet(url);
-    loadData(text, 'Google Sheet');
-    setStatus('ok','Connected');
-    localStorage.setItem('bl_sheet_url', url);
-  } catch(e) {
-    setStatus('err', 'Error: ' + e.message);
-  }
-}
-
-async function syncNow() {
-  if (!SHEET_URL) return;
-  const icon = document.getElementById('syncIcon');
-  icon.classList.add('spinning');
-  try {
-    const text = await fetchSheet(SHEET_URL);
-    loadData(text, 'Google Sheet');
-  } catch(e) {
-    alert('Sync failed: ' + e.message);
-  } finally {
-    icon.classList.remove('spinning');
-  }
-}
-
-async function fetchSheet(url) {
-  // Convert edit URL to export CSV if needed
-  let fetchUrl = url;
-  if (url.includes('/edit') || url.includes('/pub')) {
-    fetchUrl = url
-      .replace('/edit', '/export?format=csv')
-      .replace('pub?', 'export?format=csv&')
-      .replace(/gid=(\d+)/, 'gid=$1');
-    if (!fetchUrl.includes('format=csv')) fetchUrl += (fetchUrl.includes('?')?'&':'?') + 'format=csv';
-  }
-  const res = await fetch(fetchUrl);
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return await res.text();
-}
-
-function setStatus(type, msg) {
-  const el = document.getElementById('connectStatus');
-  el.className = 'connect-status status-' + type;
-  el.textContent = msg;
-}
-
-// ── File upload fallback ──────────────────────────────────────────────
-document.getElementById('csvFile').addEventListener('change', function(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    try {
-      loadData(ev.target.result, file.name);
-    } catch(err) {
-      alert('Error reading file: ' + err.message);
-    }
-  };
-  reader.readAsText(file);
-});
-
-// ── Restore saved URL on load ─────────────────────────────────────────
-const saved = localStorage.getItem('bl_sheet_url');
-if (saved) {
-  document.getElementById('sheetUrl').value = saved;
-  SHEET_URL = saved;
-}
-
 ['locFilter','cohortFilter','advFilter','typeFilter'].forEach(id =>
   document.getElementById(id).addEventListener('change', render)
 );
+
+// Auto-load on open
+loadLive();
 </script>
 </body>
 </html>
